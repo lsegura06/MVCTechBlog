@@ -1,0 +1,49 @@
+
+<div class="container">
+  <h1>Welcome to the CMS Blog Site</h1>
+  {{#if blogPosts}}
+    <h2>Existing Blog Posts</h2>
+    <ul>
+      {{#each blogPosts}}
+        <li>
+          <h3>{{title}}</h3>
+          <p>Date Created: {{date}}</p>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>There are no existing blog posts.</p>
+  {{/if}}
+
+  {{#if loggedIn}}
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="/">Homepage</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="#" id="logout">Logout</a></li>
+    </ul>
+  {{else}}
+    <h2>Please sign up or sign in</h2>
+    <ul>
+      <li><a href="#" id="signup">Sign up</a></li>
+      <li><a href="#" id="signin">Sign in</a></li>
+    </ul>
+  {{/if}}
+</div>
+
+<script>
+  const logoutButton = document.querySelector("#logout");
+  logoutButton.addEventListener("click", function() {
+    // code to log out the user
+  });
+
+  const signupButton = document.querySelector("#signup");
+  signupButton.addEventListener("click", function() {
+    // code to sign up a new user
+  });
+
+  const signinButton = document.querySelector("#signin");
+  signinButton.addEventListener("click", function() {
+    // code to sign in an existing user
+  });
+</script>

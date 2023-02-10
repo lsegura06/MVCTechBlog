@@ -1,0 +1,32 @@
+
+<template id="dashboard-template">
+  <h1>Dashboard</h1>
+  <nav>
+    <a href="#homepage">Homepage</a>
+    <a href="#dashboard">Dashboard</a>
+    {{#if loggedIn}}
+      <a href="#logout">Logout</a>
+    {{else}}
+      <a href="#login">Login</a>
+      <a href="#signup">Sign Up</a>
+    {{/if}}
+  </nav>
+  {{#if loggedIn}}
+    {{#each posts}}
+      <div class="post">
+        <h2>{{title}}</h2>
+        <p>{{content}}</p>
+        <p>By: {{username}}</p>
+        <p>Created on: {{date}}</p>
+        <a href="#post/{{id}}">View Post</a>
+        <button class="delete-post">Delete</button>
+        <button class="update-post">Update</button>
+      </div>
+    {{/each}}
+    <button class="add-post">Add Post</button>
+  {{else}}
+    <p>Please log in or sign up to access your dashboard.</p>
+  {{/if}}
+</template>
+
+<script src="./js/profile.js"></script>
